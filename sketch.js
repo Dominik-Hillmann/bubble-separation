@@ -24,8 +24,9 @@ function pCircle(coords, radius) {
 
 
 function pointOnAngle(angle, radius, center) {
-    var x = center.x + radius * Math.sin(angle);
-    var y = center.y + radius * Math.cos(angle);
+    radians = angle * Math.PI / 180;
+    var x = center.x + (radius / 2) * Math.cos(radians);
+    var y = center.y + (radius / 2) * Math.sin(radians);
     return { x: x, y: y };
 }
 
@@ -62,6 +63,8 @@ function draw() {
     circle(control1.x, control1.y, 5);
     circle(control2.x, control2.y, 5);
 
-    var anglePoint = pointOnAngle(350, radius, center1);
-    pCircle(anglePoint, 5);
+    var anglePoint1 = pointOnAngle(45, radius, center1);
+    var anglePoint2 = pointOnAngle(-45, radius, center1);
+    pCircle(anglePoint1, 5);
+    pCircle(anglePoint2, 5);
 }
